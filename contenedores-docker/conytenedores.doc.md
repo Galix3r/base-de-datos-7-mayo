@@ -44,7 +44,8 @@ docker run -d --name Server-postgresg1 -p 5455:5432 -e POSTGRES-123456 -v v-post
 
 ### contenedor de SQLSERVER con volumen 
 ´´´Docker 
-docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=p@ssw@rd" \
+docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=p@ssw0rd" \
+   -u 0 \
    -p 1450:1433 --name SQLServerG1 \
    -d -v v-sqlserverg1:/var/opt/mssql/data/ \
    e07b9
@@ -72,6 +73,7 @@ v-sqlserverg1
 | **Docker rm nombre o id** | _elimina un contenedor que no esta en ejecucion_ |
 | **Docker rm -f nombre o id** | _elimina un contenedor dque no este en ejecución_ |
 | **Docker volume ls** | _Mostrar los volumenes que existen en docker_ |
+p@ssw@rd
 
 
 
