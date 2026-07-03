@@ -11,6 +11,7 @@
 ---
  ![Resultado Ejercicio 2](../img/EJE2.png)
 
+
 ##  Modelo E-R 
 
  ![Resultado Ejercicio 1](../img/Relacional/EJERCICIO2%20(1).png)
