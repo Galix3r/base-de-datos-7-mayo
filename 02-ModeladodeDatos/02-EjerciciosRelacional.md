@@ -45,7 +45,7 @@
  ## EJERCICIO 6
 ## Modelo E-R
 ---
- ![Resultado Ejercicio 3](../img/EJERCICIO5.drawio.png)
+ ![Resultado Ejercicio 3](../img/EJERCICIO6.drawio.png)
 
 ##  Modelo E-R 
 

@@ -1,34 +1,32 @@
-## Diccionario de Datos de la base de datos de control escolar 
-1. Informacion General 
-# Diccionario de Datos de la base de datos de control escolar 
+# Diccionario de Datos de la Base de Datos de Control Escolar
 
-## 1. Informacion General 
+## 1. Información General
 
 | ELEMENTO | VALOR |
 | :--- | :--- |
 | Proyecto | Control Escolar |
 | Version | 1.0 |
 | Fecha | Junio 2026 |
-| Elaboro | Ing. Angel Jesus Perez Contreras, MTI | 
-| SGBD | SQLServer |   
+| Elaboro | Ing. Angel Jesus Perez Contreras, MTI |
+| SGBD | SQLServer |
 
 ---
 
-## 2. Descripcion del sistema de Base de Datos 
+## 2. Descripción del Sistema de Base de Datos
 
-El sistema administra:
+El sistema administra las siguientes entidades:
 * Carreras
-* Alumnos 
+* Alumnos
 * Profesores
-* Materias 
-* Grupos 
+* Materias
+* Grupos
 * Inscripciones
 
-Permite controlar la Oferta académica y la Inscripción de estudiantes.
+Permite controlar la oferta académica y el proceso de inscripción de estudiantes.
 
 ---
 
-## 3. Catalogo de restricciones utilizadas
+## 3. Catálogo de Restricciones Utilizadas
 
 | CODIGO | SIGNIFICADO |
 | :--- | :--- |
@@ -42,20 +40,18 @@ Permite controlar la Oferta académica y la Inscripción de estudiantes.
 
 ---
 
-## 4. Diccionario de Datos 
+## 4. Diccionario de Datos
 
-### ## Tabla: Carrera 
-**Descripcion**  
-Almacena las carreras ofertadas en la institución.
+### Tabla: Carrera
+**Descripción:** Almacena las carreras ofertadas en la institución.
 
 | CAMPO | TIPO | LONGITUD | RESTRICCIONES | DESCRIPCION |
 | :--- | :--- | :--- | :--- | :--- |
 | id_carrera | INT | - | PK, AI, NN | Identificador único de la carrera |
 | nombre_carrera | VARCHAR | 100 | NN, UQ | Nombre oficial de la carrera |
 
-### ## Tabla: Alumno 
-**Descripcion**  
-Almacena la información de los alumnos inscritos.
+### Tabla: Alumno
+**Descripción:** Almacena la información de los alumnos inscritos.
 
 | CAMPO | TIPO | LONGITUD | RESTRICCIONES | DESCRIPCION |
 | :--- | :--- | :--- | :--- | :--- |
@@ -68,9 +64,8 @@ Almacena la información de los alumnos inscritos.
 | Fecha_Nacimiento | DATE | - | NN | Fecha de nacimiento |
 | id_carrera | INT | - | FK, NN | Carrera a la que pertenece |
 
-### ## Tabla: Profesor 
-**Descripcion**  
-Almacena los datos del personal docente.
+### Tabla: Profesor
+**Descripción:** Almacena los datos del personal docente.
 
 | CAMPO | TIPO | LONGITUD | RESTRICCIONES | DESCRIPCION |
 | :--- | :--- | :--- | :--- | :--- |
@@ -81,9 +76,8 @@ Almacena los datos del personal docente.
 | apellido_materno | VARCHAR | 50 | NN | Apellido materno |
 | correo | VARCHAR | 100 | NN | Correo institucional |
 
-### ## Tabla: Materia 
-**Descripcion**  
-Almacena las materias que forman parte de los planes de estudio.
+### Tabla: Materia
+**Descripción:** Almacena las materias que forman parte de los planes de estudio.
 
 | CAMPO | TIPO | LONGITUD | RESTRICCIONES | DESCRIPCION |
 | :--- | :--- | :--- | :--- | :--- |
@@ -92,9 +86,8 @@ Almacena las materias que forman parte de los planes de estudio.
 | nombre_materia | VARCHAR | 100 | NN | Nombre de la asignatura |
 | id_carrera | INT | - | FK, NN | Carrera a la que pertenece la materia |
 
-### ## Tabla: Grupo 
-**Descripcion**  
-Almacena los grupos abiertos para impartir clases en un periodo académico.
+### Tabla: Grupo
+**Descripción:** Almacena los grupos abiertos para impartir clases en un periodo académico.
 
 | CAMPO | TIPO | LONGITUD | RESTRICCIONES | DESCRIPCION |
 | :--- | :--- | :--- | :--- | :--- |
@@ -103,9 +96,8 @@ Almacena los grupos abiertos para impartir clases en un periodo académico.
 | id_materia | INT | - | FK, NN | Materia que se imparte en el grupo |
 | id_profesor | INT | - | FK, NN | Profesor asignado al grupo |
 
-### ## Tabla: Inscripcion 
-**Descripcion**  
-Registra la inscripción de los alumnos en sus respectivos grupos y sus calificaciones.
+### Tabla: Inscripcion
+**Descripción:** Registra la inscripción de los alumnos en sus respectivos grupos y sus calificaciones.
 
 | CAMPO | TIPO | LONGITUD | RESTRICCIONES | DESCRIPCION |
 | :--- | :--- | :--- | :--- | :--- |
@@ -164,31 +156,33 @@ Registra la inscripción de los alumnos en sus respectivos grupos y sus califica
 | RN-04 | Un profesor puede impartir varios grupos. |
 | RN-05 | Un grupo solo puede tener un profesor asignado. |
 | RN-06 | La calificación debe estar configurada numéricamente entre 0.0 y 10.0. |
+
 ---
+
 ## 9. Diagrama Relacional
 
+![Resultado Ejercicio 1](../img/Relacional/EJERCICIO1.jpg)
 
+---
+---
 
- ![Resultado Ejercicio 1](../img/Relacional/EJERCICIO1.jpg)
+# EJERCICIO 2: Profesores, Cursos y Especialidades
 
-## EJECICIO 2
-# Diccionario de Datos de la base de datos de control escolar (Profesores, Cursos y Especialidades)
-
-## 1. Informacion General 
+## 1. Información General
 
 | ELEMENTO | VALOR |
 | :--- | :--- |
 | Proyecto | Control Escolar - Cursos y Especialidades |
 | Version | 1.0 |
 | Fecha | Junio 2026 |
-| Elaboro | Ing. Angel Jesus Perez Contreras, MTI | 
-| SGBD | SQLServer |   
+| Elaboro | Ing. Angel Jesus Perez Contreras, MTI |
+| SGBD | SQLServer |
 
 ---
 
-## 2. Descripcion del sistema de Base de Datos 
+## 2. Descripción del Sistema de Base de Datos
 
-El sistema administra:
+El sistema administra las siguientes entidades:
 * Profesores
 * Cursos
 * Especialidades
@@ -197,7 +191,7 @@ Permite controlar la asignación de cursos a los profesores y el registro de sus
 
 ---
 
-## 3. Catalogo de restricciones utilizadas
+## 3. Catálogo de Restricciones Utilizadas
 
 | CODIGO | SIGNIFICADO |
 | :--- | :--- |
@@ -211,11 +205,10 @@ Permite controlar la asignación de cursos a los profesores y el registro de sus
 
 ---
 
-## 4. Diccionario de Datos 
+## 4. Diccionario de Datos
 
-### ## Tabla: Profesor (Table)
-**Descripcion**  
-Almacena los datos del personal docente de la institución.
+### Tabla: Profesor
+**Descripción:** Almacena los datos del personal docente de la institución.
 
 | CAMPO | TIPO | LONGITUD | RESTRICCIONES | DESCRIPCION |
 | :--- | :--- | :--- | :--- | :--- |
@@ -224,9 +217,8 @@ Almacena los datos del personal docente de la institución.
 | apellido1 | VARCHAR | 50 | NN | Primer apellido |
 | apellido2 | VARCHAR | 50 | - | Segundo apellido (opcional) |
 
-### ## Tabla: Curso
-**Descripcion**  
-Almacena la información de los cursos ofertados y el profesor asignado a impartirlos.
+### Tabla: Curso
+**Descripción:** Almacena la información de los cursos ofertados y el profesor asignado a impartirlos.
 
 | CAMPO | TIPO | LONGITUD | RESTRICCIONES | DESCRIPCION |
 | :--- | :--- | :--- | :--- | :--- |
@@ -235,9 +227,8 @@ Almacena la información de los cursos ofertados y el profesor asignado a impart
 | Cresitos | INT | - | NN | Créditos académicos del curso (Nota: Campo "Cresitos" en diagrama) |
 | IDProfesor | INT | - | FK, NN | Identificador del profesor que imparte el curso |
 
-### ## Tabla: Especialidad
-**Descripcion**  
-Almacena las diferentes especialidades técnicas o profesionales asociadas a los profesores.
+### Tabla: Especialidad
+**Descripción:** Almacena las diferentes especialidades técnicas o profesionales asociadas a los profesores.
 
 | CAMPO | TIPO | LONGITUD | RESTRICCIONES | DESCRIPCION |
 | :--- | :--- | :--- | :--- | :--- |
@@ -283,28 +274,32 @@ Almacena las diferentes especialidades técnicas o profesionales asociadas a los
 | RN-02 | Los créditos ("Cresitos") de un curso deben ser un valor entero mayor a cero. |
 | RN-03 | Un profesor puede estar registrado sin tener un curso o especialidad asignada inmediatamente. |
 
+---
+
 ## 9. Diagrama Relacional
 
- ![Resultado Ejercicio 1](../img/Relacional/EJERCICIO2%20(1).png)
+![Resultado Ejercicio 2](../img/Relacional/EJERCICIO2%20(1).png)
 
- ## EJERCICIO 3
- # Diccionario de Datos de la base de datos de control escolar (Profesores, Cursos y Especialidades)
+---
+---
 
-## 1. Informacion General 
+# EJERCICIO 3: Profesores, Cursos y Especialidades (Estructura Alterna)
+
+## 1. Información General
 
 | ELEMENTO | VALOR |
 | :--- | :--- |
 | Proyecto | Control Escolar - Cursos y Especialidades |
 | Version | 1.0 |
 | Fecha | Junio 2026 |
-| Elaboro | Ing. Angel Jesus Perez Contreras, MTI | 
-| SGBD | SQLServer |   
+| Elaboro | Ing. Angel Jesus Perez Contreras, MTI |
+| SGBD | SQLServer |
 
 ---
 
-## 2. Descripcion del sistema de Base de Datos 
+## 2. Descripción del Sistema de Base de Datos
 
-El sistema administra:
+El sistema administra las siguientes entidades:
 * Profesores
 * Cursos
 * Especialidades
@@ -313,7 +308,7 @@ Permite controlar la asignación de cursos a los profesores y el registro de sus
 
 ---
 
-## 3. Catalogo de restricciones utilizadas
+## 3. Catálogo de Restricciones Utilizadas
 
 | CODIGO | SIGNIFICADO |
 | :--- | :--- |
@@ -327,11 +322,10 @@ Permite controlar la asignación de cursos a los profesores y el registro de sus
 
 ---
 
-## 4. Diccionario de Datos 
+## 4. Diccionario de Datos
 
-### ## Tabla: Profesor (Table)
-**Descripcion**  
-Almacena los datos del personal docente de la institución.
+### Tabla: Profesor
+**Descripción:** Almacena los datos del personal docente de la institución.
 
 | CAMPO | TIPO | LONGITUD | RESTRICCIONES | DESCRIPCION |
 | :--- | :--- | :--- | :--- | :--- |
@@ -340,9 +334,8 @@ Almacena los datos del personal docente de la institución.
 | apellido1 | VARCHAR | 50 | NN | Primer apellido |
 | apellido2 | VARCHAR | 50 | - | Segundo apellido (opcional) |
 
-### ## Tabla: Curso
-**Descripcion**  
-Almacena la información de los cursos ofertados y el profesor asignado a impartirlos.
+### Tabla: Curso
+**Descripción:** Almacena la información de los cursos ofertados y el profesor asignado a impartirlos.
 
 | CAMPO | TIPO | LONGITUD | RESTRICCIONES | DESCRIPCION |
 | :--- | :--- | :--- | :--- | :--- |
@@ -351,9 +344,8 @@ Almacena la información de los cursos ofertados y el profesor asignado a impart
 | Cresitos | INT | - | NN | Créditos académicos del curso (Nota: Campo "Cresitos" en diagrama) |
 | IDProfesor | INT | - | FK, NN | Identificador del profesor que imparte el curso |
 
-### ## Tabla: Especialidad
-**Descripcion**  
-Almacena las diferentes especialidades técnicas o profesionales asociadas a los profesores.
+### Tabla: Especialidad
+**Descripción:** Almacena las diferentes especialidades técnicas o profesionales asociadas a los profesores.
 
 | CAMPO | TIPO | LONGITUD | RESTRICCIONES | DESCRIPCION |
 | :--- | :--- | :--- | :--- | :--- |
@@ -399,30 +391,32 @@ Almacena las diferentes especialidades técnicas o profesionales asociadas a los
 | RN-02 | Los créditos ("Cresitos") de un curso deben ser un valor entero mayor a cero. |
 | RN-03 | Un profesor puede estar registrado sin tener un curso o especialidad asignada inmediatamente. |
 
+---
+
 ## 9. Diagrama Relacional
- ![Resultado Ejercicio 1](../img/Relacional/EJERCICIO3.png)
 
+![Resultado Ejercicio 3](../img/Relacional/EJERCICIO3.png)
 
- ## EJERCICIO 4
+---
+---
 
+# EJERCICIO 4: Control de Pedidos y Productos
 
-# Diccionario de Datos de la base de datos de control de pedidos y productos
-
-## 1. Informacion General 
+## 1. Información General
 
 | ELEMENTO | VALOR |
 | :--- | :--- |
 | Proyecto | Control de Pedidos y Productos |
 | Version | 1.0 |
 | Fecha | Junio 2026 |
-| Elaboro | Ing. Angel Jesus Perez Contreras, MTI | 
-| SGBD | SQLServer |   
+| Elaboro | Ing. Angel Jesus Perez Contreras, MTI |
+| SGBD | SQLServer |
 
 ---
 
-## 2. Descripcion del sistema de Base de Datos 
+## 2. Descripción del Sistema de Base de Datos
 
-El sistema administra:
+El sistema administra las siguientes entidades:
 * Clientes
 * Pedidos
 * Productos
@@ -432,7 +426,7 @@ Permite controlar la gestión de compras corporativas de los clientes, registran
 
 ---
 
-## 3. Catalogo de restricciones utilizadas
+## 3. Catálogo de Restricciones Utilizadas
 
 | CODIGO | SIGNIFICADO |
 | :--- | :--- |
@@ -446,11 +440,10 @@ Permite controlar la gestión de compras corporativas de los clientes, registran
 
 ---
 
-## 4. Diccionario de Datos 
+## 4. Diccionario de Datos
 
-### ## Tabla: CLIENTE
-**Descripcion**  
-Almacena el registro de las empresas clientes de la organización.
+### Tabla: CLIENTE
+**Descripción:** Almacena el registro de las empresas clientes de la organización.
 
 | CAMPO | TIPO | LONGITUD | RESTRICCIONES | DESCRIPCION |
 | :--- | :--- | :--- | :--- | :--- |
@@ -459,9 +452,8 @@ Almacena el registro de las empresas clientes de la organización.
 | RFC | VARCHAR | 13 | NN, UQ | Registro Federal de Contribuyentes de la empresa |
 | NoPedidos | INT | - | FK, - | Relación foránea de referencia con el pedido |
 
-### ## Tabla: PEDIDOS
-**Descripcion**  
-Almacena la cabecera y metadatos temporales de las órdenes de compra solicitadas.
+### Tabla: PEDIDOS
+**Descripción:** Almacena la cabecera y metadatos temporales de las órdenes de compra solicitadas.
 
 | CAMPO | TIPO | LONGITUD | RESTRICCIONES | DESCRIPCION |
 | :--- | :--- | :--- | :--- | :--- |
@@ -472,9 +464,8 @@ Almacena la cabecera y metadatos temporales de las órdenes de compra solicitada
 | Mes | INT | - | NN | Mes calendario de procesamiento (1-12) |
 | Año | INT | - | NN | Año de procesamiento del pedido |
 
-### ## Tabla: PRODUCTO
-**Descripcion**  
-Almacena el catálogo de productos disponibles para la venta.
+### Tabla: PRODUCTO
+**Descripción:** Almacena el catálogo de productos disponibles para la venta.
 
 | CAMPO | TIPO | LONGITUD | RESTRICCIONES | DESCRIPCION |
 | :--- | :--- | :--- | :--- | :--- |
@@ -483,9 +474,8 @@ Almacena el catálogo de productos disponibles para la venta.
 | Nombre | VARCHAR | 100 | NN | Nombre comercial del producto |
 | NoPedidos | INT | - | FK, - | Llave foránea de referencia hacia la orden |
 
-### ## Tabla: TIENE
-**Descripcion**  
-Tabla intermedia que detalla el desglose y la cantidad de productos incluidos dentro de cada pedido.
+### Tabla: TIENE
+**Descripción:** Tabla intermedia que detalla el desglose y la cantidad de productos incluidos dentro de cada pedido.
 
 | CAMPO | TIPO | LONGITUD | RESTRICCIONES | DESCRIPCION |
 | :--- | :--- | :--- | :--- | :--- |
@@ -535,29 +525,33 @@ Tabla intermedia que detalla el desglose y la cantidad de productos incluidos de
 | RN-01 | El campo `RFC` en `CLIENTE` debe cumplir con la estructura de longitud y validación alfanumérica estándar de personas morales. |
 | RN-02 | El campo `Mes` en la tabla `PEDIDOS` solo acepta valores enteros dentro del rango del 1 al 12 mediante una restricción CK. |
 | RN-03 | Los campos de `Precio` y `Cantidad` en las tablas `PRODUCTO` y `TIENE` deben ser estrictamente superiores a cero. |
+
+---
+
 ## 9. Diagrama Relacional
- ![Resultado Ejercicio 1](../img/Relacional/Ejercicio4.png)
 
+![Resultado Ejercicio 4](../img/Relacional/Ejercicio4.png)
 
- ## EJERCICIO 5
+---
+---
 
-# Diccionario de Datos de la base de datos de gestión de empleados y departamentos
+# EJERCICIO 5: Gestión de Empleados y Departamentos
 
-## 1. Informacion General 
+## 1. Información General
 
 | ELEMENTO | VALOR |
 | :--- | :--- |
 | Proyecto | Control de Empleados, Departamentos y Proyectos |
 | Version | 1.0 |
 | Fecha | Junio 2026 |
-| Elaboro | Ing. Angel Jesus Perez Contreras, MTI | 
-| SGBD | SQLServer |   
+| Elaboro | Ing. Angel Jesus Perez Contreras, MTI |
+| SGBD | SQLServer |
 
 ---
 
-## 2. Descripcion del sistema de Base de Datos 
+## 2. Descripción del Sistema de Base de Datos
 
-El sistema administra:
+El sistema administra las siguientes entidades:
 * Empleados (Con jerarquía interna y jefaturas)
 * Departamentos y sus ubicaciones (Locations)
 * Proyectos asignados a los departamentos
@@ -568,7 +562,7 @@ Permite controlar la estructura interna de una empresa, los gerentes a cargo de 
 
 ---
 
-## 3. Catalogo de restricciones utilizadas
+## 3. Catálogo de Restricciones Utilizadas
 
 | CODIGO | SIGNIFICADO |
 | :--- | :--- |
@@ -582,11 +576,10 @@ Permite controlar la estructura interna de una empresa, los gerentes a cargo de 
 
 ---
 
-## 4. Diccionario de Datos 
+## 4. Diccionario de Datos
 
-### ## Tabla: EMPLOYE
-**Descripcion**  
-Almacena el registro del personal de la empresa, incluyendo su información básica y su relación de subordinación o jefatura.
+### Tabla: EMPLOYE
+**Descripción:** Almacena el registro del personal de la empresa, incluyendo su información básica y su relación de subordinación o jefatura.
 
 | CAMPO | TIPO | LONGITUD | RESTRICCIONES | DESCRIPCION |
 | :--- | :--- | :--- | :--- | :--- |
@@ -600,9 +593,8 @@ Almacena el registro del personal de la empresa, incluyendo su información bás
 | NumDepartament | INT | - | FK, NN | Departamento al que pertenece el empleado |
 | Jef | INT | - | FK, - | Identificador del jefe directo (Autorelación/Relación reflexiva) |
 
-### ## Tabla: Departament
-**Descripcion**  
-Almacena los departamentos operativos o administrativos que constituyen la empresa.
+### Tabla: Departament
+**Descripción:** Almacena los departamentos operativos o administrativos que constituyen la empresa.
 
 | CAMPO | TIPO | LONGITUD | RESTRICCIONES | DESCRIPCION |
 | :--- | :--- | :--- | :--- | :--- |
@@ -611,9 +603,8 @@ Almacena los departamentos operativos o administrativos que constituyen la empre
 | StardDate | DATE | - | NN | Fecha de asignación o inicio del gerente en el cargo |
 | nombre | VARCHAR | 100 | NN, UQ | Nombre oficial del departamento |
 
-### ## Tabla: Lcations
-**Descripcion**  
-Almacena las diferentes sedes, regiones o ubicaciones geográficas asignadas a los departamentos.
+### Tabla: Lcations
+**Descripción:** Almacena las diferentes sedes, regiones o ubicaciones geográficas asignadas a los departamentos.
 
 | CAMPO | TIPO | LONGITUD | RESTRICCIONES | DESCRIPCION |
 | :--- | :--- | :--- | :--- | :--- |
@@ -621,9 +612,8 @@ Almacena las diferentes sedes, regiones o ubicaciones geográficas asignadas a l
 | NameLocations | VARCHAR | 100 | NN | Nombre de la ubicación o sucursal |
 | numLocations | INT | - | - | Código numérico o identificador de la zona |
 
-### ## Tabla: Proyects
-**Descripcion**  
-Almacena los proyectos de desarrollo o investigación gestionados por los departamentos.
+### Tabla: Proyects
+**Descripción:** Almacena los proyectos de desarrollo o investigación gestionados por los departamentos.
 
 | CAMPO | TIPO | LONGITUD | RESTRICCIONES | DESCRIPCION |
 | :--- | :--- | :--- | :--- | :--- |
@@ -632,9 +622,8 @@ Almacena los proyectos de desarrollo o investigación gestionados por los depart
 | Locations | VARCHAR | 100 | - | Ubicación o sede donde se desarrolla el proyecto |
 | NumberDep | INT | - | FK, NN | Departamento responsable de la ejecución del proyecto |
 
-### ## Tabla: WORKS_ON
-**Descripcion**  
-Tabla intermedia que desglosa la asignación de los empleados a los proyectos y controla el tiempo invertido en cada uno.
+### Tabla: WORKS_ON
+**Descripción:** Tabla intermedia que desglosa la asignación de los empleados a los proyectos y controla el tiempo invertido en cada uno.
 
 | CAMPO | TIPO | LONGITUD | RESTRICCIONES | DESCRIPCION |
 | :--- | :--- | :--- | :--- | :--- |
@@ -642,9 +631,8 @@ Tabla intermedia que desglosa la asignación de los empleados a los proyectos y 
 | NumberProyecto | INT | - | PK, FK, NN | Identificador del proyecto en desarrollo |
 | hours | DECIMAL | 5,2 | - | Cantidad de horas acumuladas de trabajo |
 
-### ## Tabla: Dependiente
-**Descripcion**  
-Almacena el registro de los familiares directos de los empleados para control de seguros o prestaciones.
+### Tabla: Dependiente
+**Descripción:** Almacena el registro de los familiares directos de los empleados para control de seguros o prestaciones.
 
 | CAMPO | TIPO | LONGITUD | RESTRICCIONES | DESCRIPCION |
 | :--- | :--- | :--- | :--- | :--- |
@@ -707,29 +695,32 @@ Almacena el registro de los familiares directos de los empleados para control de
 | RN-03 | El campo `Salary` de la tabla `EMPLOYE` debe ser configurado con valores monetarios estrictamente positivos. |
 | RN-04 | La fecha de asignación de gerencia `StardDate` no puede ser menor a la fecha de creación del departamento. |
 
+---
+
 ## 9. Diagrama Relacional
- ![Resultado Ejercicio 1](../img/Relacional/EJERCICIO5.png)
 
+![Resultado Ejercicio 5](../img/Relacional/EJERCICIO5.png)
 
- ## EJERCICIO 6
+---
+---
 
-# Diccionario de Datos de la base de datos de control escolar integral
+# EJERCICIO 6: Control Escolar Integral, Profesores y Proyectos
 
-## 1. Informacion General 
+## 1. Información General
 
 | ELEMENTO | VALOR |
 | :--- | :--- |
 | Proyecto | Sistema Integral de Control Escolar, Profesores y Proyectos |
 | Version | 1.0 |
 | Fecha | Junio 2026 |
-| Elaboro | Ing. Angel Jesus Perez Contreras, MTI | 
-| SGBD | SQLServer |   
+| Elaboro | Ing. Angel Jesus Perez Contreras, MTI |
+| SGBD | SQLServer |
 
 ---
 
-## 2. Descripcion del sistema de Base de Datos 
+## 2. Descripción del Sistema de Base de Datos
 
-El sistema administra:
+El sistema administra las siguientes entidades:
 * Alumnos, sus credenciales y sus números telefónicos de contacto.
 * Control de materias cursadas por los alumnos (Cursa) con sus calificaciones finales.
 * Profesores con adscripción a departamentos específicos y sus dependientes familiares.
@@ -739,7 +730,7 @@ Permite controlar la gestión del ciclo escolar completo, el historial de inscri
 
 ---
 
-## 3. Catalogo de restricciones utilizadas
+## 3. Catálogo de Restricciones Utilizadas
 
 | CODIGO | SIGNIFICADO |
 | :--- | :--- |
@@ -753,11 +744,10 @@ Permite controlar la gestión del ciclo escolar completo, el historial de inscri
 
 ---
 
-## 4. Diccionario de Datos 
+## 4. Diccionario de Datos
 
-### ## Tabla: Alumno
-**Descripcion**  
-Almacena el registro principal y los datos personales de los estudiantes de la institución.
+### Tabla: Alumno
+**Descripción:** Almacena el registro principal y los datos personales de los estudiantes de la institución.
 
 | CAMPO | TIPO | LONGITUD | RESTRICCIONES | DESCRIPCION |
 | :--- | :--- | :--- | :--- | :--- |
@@ -768,9 +758,8 @@ Almacena el registro principal y los datos personales de los estudiantes de la i
 | correo | VARCHAR | 100 | NN, UQ | Correo electrónico de contacto |
 | fechaNaci | DATE | - | NN | Fecha de nacimiento |
 
-### ## Tabla: Telefono
-**Descripcion**  
-Almacena los números telefónicos asociados a las matrículas de los alumnos.
+### Tabla: Telefono
+**Descripción:** Almacena los números telefónicos asociados a las matrículas de los alumnos.
 
 | CAMPO | TIPO | LONGITUD | RESTRICCIONES | DESCRIPCION |
 | :--- | :--- | :--- | :--- | :--- |
@@ -778,20 +767,18 @@ Almacena los números telefónicos asociados a las matrículas de los alumnos.
 | Matricula | VARCHAR | 20 | PK, FK, NN | Matrícula del alumno al que pertenece el teléfono |
 | numeroTotal | INT | - | - | Total o contador de teléfonos registrados (Opcional) |
 
-### ## Tabla: Credencial
-**Descripcion**  
-Almacena los datos de la credencial de identificación física asignada a cada alumno.
+### Tabla: Credencial
+**Descripción:** Almacena los datos de la credencial de identificación física asignada a cada alumno.
 
-| CAMPO | TIPO | LONGITUD | RESTRIPCIONES | DESCRIPCION |
+| CAMPO | TIPO | LONGITUD | RESTRICCIONES | DESCRIPCION |
 | :--- | :--- | :--- | :--- | :--- |
 | Numcredencial | VARCHAR | 20 | PK, NN | Número de serie único de la credencial |
 | FechaInscripcion | DATE | - | NN, DF | Fecha de expedición o inscripción inicial |
 | Vigencia | DATE | - | NN | Fecha de expiración del documento |
 | Matricula | VARCHAR | 20 | FK, NN, UQ | Matrícula del alumno titular de la credencial |
 
-### ## Tabla: Cursa
-**Descripcion**  
-Tabla intermedia que rompe la relación N:M entre alumnos y materias, registrando las asignaturas tomadas y sus notas.
+### Tabla: Cursa
+**Descripción:** Tabla intermedia que rompe la relación N:M entre alumnos y materias, registrando las asignaturas tomadas y sus notas.
 
 | CAMPO | TIPO | LONGITUD | RESTRICCIONES | DESCRIPCION |
 | :--- | :--- | :--- | :--- | :--- |
@@ -800,9 +787,8 @@ Tabla intermedia que rompe la relación N:M entre alumnos y materias, registrand
 | Transcripcion | VARCHAR | 250 | - | Notas adicionales, observaciones o minuta del curso |
 | CalificacionFinal | DECIMAL | 4,2 | CK | Calificación definitiva obtenida en la asignatura |
 
-### ## Tabla: Materia
-**Descripcion**  
-Almacena las materias académicas que componen la oferta institucional.
+### Tabla: Materia
+**Descripción:** Almacena las materias académicas que componen la oferta institucional.
 
 | CAMPO | TIPO | LONGITUD | RESTRICCIONES | DESCRIPCION |
 | :--- | :--- | :--- | :--- | :--- |
@@ -811,9 +797,8 @@ Almacena las materias académicas que componen la oferta institucional.
 | Creditos | INT | - | NN | Valor en créditos académicos |
 | numProf | INT | - | FK, NN | Profesor titular asignado de manera global |
 
-### ## Tabla: Profesor
-**Descripcion**  
-Almacena el registro laboral del personal docente de la institución.
+### Tabla: Profesor
+**Descripción:** Almacena el registro laboral del personal docente de la institución.
 
 | CAMPO | TIPO | LONGITUD | RESTRICCIONES | DESCRIPCION |
 | :--- | :--- | :--- | :--- | :--- |
@@ -823,9 +808,8 @@ Almacena el registro laboral del personal docente de la institución.
 | apellido2 | VARCHAR | 50 | - | Segundo apellido |
 | NumDepa | INT | - | FK, NN | Departamento administrativo al que pertenece |
 
-### ## Tabla: Dependiente
-**Descripcion**  
-Almacena los familiares beneficiarios directos vinculados a cada profesor.
+### Tabla: Dependiente
+**Descripción:** Almacena los familiares beneficiarios directos vinculados a cada profesor.
 
 | CAMPO | TIPO | LONGITUD | RESTRICCIONES | DESCRIPCION |
 | :--- | :--- | :--- | :--- | :--- |
@@ -834,9 +818,8 @@ Almacena los familiares beneficiarios directos vinculados a cada profesor.
 | FechaNaci | DATE | - | NN | Fecha de nacimiento del dependiente |
 | Parentesco | VARCHAR | 50 | NN | Vínculo familiar (Hijo, Hija, Cónyuge, etc.) |
 
-### ## Tabla: Departamento
-**Descripcion**  
-Almacena las divisiones o departamentos académicos institucionales.
+### Tabla: Departamento
+**Descripción:** Almacena las divisiones o departamentos académicos institucionales.
 
 | CAMPO | TIPO | LONGITUD | RESTRICCIONES | DESCRIPCION |
 | :--- | :--- | :--- | :--- | :--- |
@@ -844,9 +827,8 @@ Almacena las divisiones o departamentos académicos institucionales.
 | nombre | VARCHAR | 100 | NN, UQ | Nombre de la facultad o departamento |
 | Edificio | VARCHAR | 50 | - | Ubicación o bloque físico dentro del campus |
 
-### ## Tabla: Proyectos
-**Descripcion**  
-Almacena los proyectos de investigación o desarrollo institucionales.
+### Tabla: Proyectos
+**Descripción:** Almacena los proyectos de investigación o desarrollo institucionales.
 
 | CAMPO | TIPO | LONGITUD | RESTRICCIONES | DESCRIPCION |
 | :--- | :--- | :--- | :--- | :--- |
@@ -854,9 +836,8 @@ Almacena los proyectos de investigación o desarrollo institucionales.
 | NameProyects | VARCHAR | 150 | NN | Título o nombre del proyecto |
 | Presupuesto | DECIMAL | 12,2 | - | Fondo económico asignado al proyecto |
 
-### ## Tabla: Participa
-**Descripcion**  
-Tabla intermedia que controla los profesores asignados a los diferentes proyectos de desarrollo.
+### Tabla: Participa
+**Descripción:** Tabla intermedia que controla los profesores asignados a los diferentes proyectos de desarrollo.
 
 | CAMPO | TIPO | LONGITUD | RESTRICCIONES | DESCRIPCION |
 | :--- | :--- | :--- | :--- | :--- |
@@ -871,53 +852,16 @@ Tabla intermedia que controla los profesores asignados a los diferentes proyecto
 
 | Relacion | Cardinalidad | Descripcion |
 | :--- | :--- | :--- |
-| Alumno --> Telefono | 1:N | Un alumno puede registrar varios números de teléfono |
-| Alumno --> Credencial | 1:1 | Un alumno posee una única credencial de identificación activa |
-| Alumno --> Cursa | 1:N | Un alumno puede tomar varias materias |
-| Materia --> Cursa | 1:N | Una materia puede ser cursada por múltiples alumnos |
-| Profesor --> Materia | 1:N | Un profesor puede ser titular de varias materias |
-| Profesor --> Dependiente | 1:N | Un profesor puede tener múltiples dependientes registrados |
-| Departamento --> Profesor | 1:N | Un departamento coordina a muchos profesores |
-| Profesor --> Participa | 1:N | Un profesor puede colaborar en diversos proyectos |
-| Proyectos --> Participa | 1:N | Un proyecto cuenta con la participación de varios profesores |
-
----
-
-## 6. Llaves Foráneas (FK)
-
-| Tabla | Campo FK | Referencia |
-| :--- | :--- | :--- |
-| Telefono | Matricula | Alumno (Matricula) |
-| Credencial | Matricula | Alumno (Matricula) |
-| Cursa | Matricula | Alumno (Matricula) |
-| Cursa | ClaveMateria | Materia (ClaveMateria) |
-| Materia | numProf | Profesor (Numprofe) |
-| Profesor | NumDepa | Departamento (numDepa) |
-| Dependiente | NumProf | Profesor (Numprofe) |
-| Participa | NumProfe | Profesor (Numprofe) |
-| Participa | NumProyect | Proyectos (NumberProyects) |
-
----
-
-## 7. Integridad Referencial
-
-| Reglas | Descripcion |
-| :--- | :--- |
-| IR-01 | No se puede emitir una credencial si la `Matricula` del alumno no existe previamente. |
-| IR-02 | No se puede asentar un registro en `Cursa` si los datos del alumno (`Matricula`) o la materia (`ClaveMateria`) no están dados de alta. |
-| IR-03 | No se puede eliminar un departamento de la tabla `Departamento` si este posee profesores asignados en `Profesor`. |
-| IR-04 | Al dar de baja a un profesor (`Numprofe`), sus dependientes y asignaciones de participación en proyectos deben limpiarse para evitar inconsistencias. |
-
----
-
-## 8. Reglas de Negocio
-
-| Codigo | Regla |
-| :--- | :--- |
-| RN-01 | La `CalificacionFinal` contenida en la tabla `Cursa` debe evaluarse exclusivamente en un rango de 0.00 a 10.00. |
-| RN-02 | La fecha de `Vigencia` de la credencial debe ser estrictamente posterior a la `FechaInscripcion`. |
-| RN-03 | El campo `Presupuesto` de la tabla `Proyectos` solo aceptará valores numéricos positivos. |
-| RN-04 | La llave primaria compuesta de la tabla `Telefono` (`TelefonoID`, `Matricula`) impide que dos alumnos tengan registrada la misma línea telefónica bajo la misma cuenta. |
+| Alumno --> Telefono | 1:N | Un alumno puede tener registrados varios números telefónicos |
+| Alumno --> Credencial | 1:1 | Un alumno posee una única credencial activa |
+| Alumno --> Cursa | 1:N | Un alumno puede cursar múltiples materias mediante registro de notas |
+| Materia --> Cursa | 1:N | Una materia es cursada por múltiples alumnos simultáneamente |
+| Profesor --> Materia | 1:N | Un profesor puede ser asignado como titular de varias materias |
+| Departamento --> Profesor | 1:N | Un departamento agrupa a múltiples profesores de su facultad |
+| Profesor --> Dependiente | 1:N | Un profesor puede registrar varios familiares dependientes |
+| Profesor --> Participa | 1:N | Un profesor colabora en proyectos a través de roles asignados |
+| Proyectos --> Participa | 1:N | Un proyecto cuenta con la participación de múltiples profesores |
 
 ## 9. Diagrama Relacional
- ![Resultado Ejercicio 1](../img/Relacional/EJERCICIO6.png)
+
+![Resultado Ejercicio 5](../img/Relacional/EJERCICIO6.png)
