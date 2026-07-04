@@ -161,8 +161,7 @@ Permite controlar la oferta académica y el proceso de inscripción de estudiant
 
 ## 9. Diagrama Relacional
 
-![Resultado Ejercicio 1](../img/Relacional/EJERCICIO1.jpg)
-
+![Resultado Ejercicio 1](../contenedores-docker/img/Relacional/EJERCICIO1.jpg)
 ---
 ---
 
@@ -278,8 +277,7 @@ Permite controlar la asignación de cursos a los profesores y el registro de sus
 
 ## 9. Diagrama Relacional
 
-![Resultado Ejercicio 2](../img/Relacional/EJERCICIO2%20(1).png)
-
+![Resultado Ejercicio 1](../contenedores-docker/img/Relacional/EJERCICIO2%20(1).png)
 ---
 ---
 
@@ -395,8 +393,7 @@ Permite controlar la asignación de cursos a los profesores y el registro de sus
 
 ## 9. Diagrama Relacional
 
-![Resultado Ejercicio 3](../img/Relacional/EJERCICIO3.png)
-
+![Resultado Ejercicio 1](../contenedores-docker/img/Relacional/EJERCICIO3.png)---
 ---
 ---
 
@@ -530,8 +527,7 @@ Permite controlar la gestión de compras corporativas de los clientes, registran
 
 ## 9. Diagrama Relacional
 
-![Resultado Ejercicio 4](../img/Relacional/Ejercicio4.png)
-
+![Resultado Ejercicio 1](../contenedores-docker/img/Relacional/Ejercicio4.png)---
 ---
 ---
 
@@ -699,8 +695,7 @@ Permite controlar la estructura interna de una empresa, los gerentes a cargo de 
 
 ## 9. Diagrama Relacional
 
-![Resultado Ejercicio 5](../img/Relacional/EJERCICIO5.png)
-
+![Resultado Ejercicio 1](../contenedores-docker/img/Relacional/EJERCICIO5.png)---
 ---
 ---
 
@@ -864,4 +859,195 @@ Permite controlar la gestión del ciclo escolar completo, el historial de inscri
 
 ## 9. Diagrama Relacional
 
-![Resultado Ejercicio 5](../img/Relacional/EJERCICIO6.png)
+![Resultado Ejercicio 1](../contenedores-docker/img/Relacional/EJERCICIO6.png)---
+
+# EJERCICIO 7: Control Escolar Integral, Profesores y Proyectos
+
+## 1. Información General
+
+| ELEMENTO | VALOR |
+| :--- | :--- |
+| Proyecto | Sistema Integral de Control Escolar, Profesores y Proyectos |
+| Version | 1.0 |
+| Fecha | Junio 2026 |
+| Elaboro | Ing. Angel Jesus Perez Contreras, MTI |
+| SGBD | SQLServer |
+
+---
+
+## 2. Descripción del Sistema de Base de Datos
+
+El sistema administra las siguientes entidades:
+* Alumnos, sus credenciales y sus números telefónicos de contacto.
+* Control de materias cursadas por los alumnos (Cursa) con sus calificaciones finales.
+* Profesores con adscripción a departamentos específicos y sus dependientes familiares.
+* Participación de profesores en proyectos institucionales (Participa) bajo roles definidos.
+
+Permite controlar la gestión del ciclo escolar completo, el historial de inscripciones y calificaciones de asignaturas, la estructura administrativa de profesores adscritos a edificios/departamentos y la asignación laboral a proyectos con presupuesto específico.
+
+---
+
+## 3. Catálogo de Restricciones Utilizadas
+
+| CODIGO | SIGNIFICADO |
+| :--- | :--- |
+| PK | Primary Key |
+| FK | Foreign Key |
+| NN | NOT NULL |
+| UQ | Unique |
+| AI | Auto Increment |
+| CK | Check |
+| DF | Default |
+
+---
+
+## 4. Relaciones en la Base de Datos (Basado en Modelo)
+
+| Relacion | Cardinalidad | Descripcion |
+| :--- | :--- | :--- |
+| Alumno --> Telefono | 1:N | Un alumno puede tener registrados varios números de teléfono |
+| Telefono --> Credencial | 1:1 | Un registro telefónico se asocia a una credencial específica |
+| Alumno --> Cursa | 1:N | Un alumno puede cursar múltiples materias en diferentes fechas |
+| Materia --> Cursa | 1:N | Una materia es cursada por múltiples alumnos simultáneamente |
+| Profesor --> Materia | 1:1 | Un profesor se asigna directamente a la estructura de una materia |
+| Departamento --> Profesor | 1:N | Un departamento agrupa e incorpora a múltiples profesores |
+| Profesor --> Dependiente | 1:N | Un profesor puede registrar múltiples dependientes familiares |
+| Profesor --> Participa | 1:N | Un profesor se integra a diversas actividades mediante roles |
+| Proyectos --> Participa | 1:N | Un proyecto cuenta con la colaboración activa de varios docentes |
+| Departamento --> Proyectos | N:N | Los departamentos gestionan y cofinancian proyectos institucionales |
+
+---
+
+## 5. Diccionario de Datos por Tabla
+
+### Tabla: Alumno
+**Descripción:** Almacena el registro principal y los datos personales de los estudiantes de la institución.
+
+| CAMPO | TIPO | LONGITUD | RESTRICCIONES | DESCRIPCION |
+| :--- | :--- | :--- | :--- | :--- |
+| Matricula | VARCHAR | 20 | PK, NN | Matrícula única institucional del alumno |
+| Nombre | VARCHAR | 50 | NN | Nombre(s) del alumno |
+| apellido1 | VARCHAR | 50 | NN | Primer apellido |
+| apellido2 | VARCHAR | 50 | - | Segundo apellido (opcional) |
+| correo | VARCHAR | 100 | NN, UQ | Correo electrónico de contacto |
+| fechaNaci | DATE | - | NN | Fecha de nacimiento |
+
+---
+
+### Tabla: Telefono
+**Descripción:** Almacena los números telefónicos y datos de contacto asociados a las matrículas de los alumnos.
+
+| CAMPO | TIPO | LONGITUD | RESTRICCIONES | DESCRIPCION |
+| :--- | :--- | :--- | :--- | :--- |
+| TelefonoID | VARCHAR | 15 | PK, NN | Identificador o código único de la línea telefónica |
+| Matricula | VARCHAR | 20 | FK, NN | Matrícula del alumno al que pertenece el teléfono |
+| numeroTotal | INT | - | - | Contador de teléfonos totales registrados |
+| tel | VARCHAR | 20 | NN | Número de teléfono físico de contacto |
+
+---
+
+### Tabla: Credencial
+**Descripción:** Almacena los datos de la credencial de identificación física asignada a cada alumno.
+
+| CAMPO | TIPO | LONGITUD | RESTRICCIONES | DESCRIPCION |
+| :--- | :--- | :--- | :--- | :--- |
+| Numcredencial | VARCHAR | 20 | PK, NN | Número de serie único de la credencial |
+| FechaInscripcion | DATE | - | NN, DF | Fecha de expedición o inscripción inicial |
+| Vigencia | DATE | - | NN | Fecha de expiración del documento |
+| Matricula | VARCHAR | 20 | FK, NN | Matrícula del alumno titular de la credencial |
+| idTel | VARCHAR | 15 | FK, NN | Relación con el teléfono de contacto asociado |
+
+---
+
+### Tabla: Cursa
+**Descripción:** Tabla que registra las asignaturas tomadas por los alumnos y sus respectivas evaluaciones cronológicas.
+
+| CAMPO | TIPO | LONGITUD | RESTRICCIONES | DESCRIPCION |
+| :--- | :--- | :--- | :--- | :--- |
+| Matricula | VARCHAR | 20 | FK, NN | Matrícula del alumno |
+| ClaveMateria | VARCHAR | 10 | FK, NN | Clave de la materia cursada |
+| Transcripcion | VARCHAR | 250 | - | Notas adicionales, observaciones o minuta del curso |
+| CalificacionFinal | DECIMAL | 4,2 | CK | Calificación definitiva obtenida en la asignatura |
+| FechaInscripcion | DATE | - | NN | Fecha en la que se dio de alta la materia por el alumno |
+
+---
+
+### Tabla: Materia
+**Descripción:** Almacena las materias académicas que componen la oferta institucional.
+
+| CAMPO | TIPO | LONGITUD | RESTRICCIONES | DESCRIPCION |
+| :--- | :--- | :--- | :--- | :--- |
+| ClaveMateria | VARCHAR | 10 | PK, NN | Código alfanumérico identificador de la materia |
+| NombreMateria | VARCHAR | 100 | NN | Nombre de la asignatura |
+| Creditos | INT | - | NN | Valor en créditos académicos |
+| numProf | INT | - | NN | Código de control del profesor asignado |
+| TotalMaterias | INT | - | - | Contador global o acumulado de materias de la rama |
+| NumProfe | INT | - | FK, NN | Llave foránea que conecta directamente con el docente titular |
+
+---
+
+### Tabla: Profesor
+**Descripción:** Almacena el registro laboral, adscripciones estructurales y asignaciones del personal docente.
+
+| CAMPO | TIPO | LONGITUD | RESTRICCIONES | DESCRIPCION |
+| :--- | :--- | :--- | :--- | :--- |
+| Numprofe | INT | - | PK, AI, NN | Número identificador único del profesor |
+| nombre | VARCHAR | 30 | NN | Nombre(s) del profesor |
+| apellido1 | VARCHAR | 50 | NN | Primer apellido |
+| apellido2 | VARCHAR | 50 | - | Segundo apellido |
+| NumDepa | INT | - | FK, NN | Departamento administrativo de asignación principal |
+| NumDep | INT | - | FK | Vínculo secundario o de apoyo con otra división académica |
+| Participa | VARCHAR | 50 | FK | Registro o clave de participación institucional |
+| NumProyecto | INT | - | FK | Código del proyecto principal asignado al docente |
+
+---
+
+### Tabla: Dependiente
+**Descripción:** Almacena los familiares beneficiarios directos vinculados a cada profesor.
+
+| CAMPO | TIPO | LONGITUD | RESTRICCIONES | DESCRIPCION |
+| :--- | :--- | :--- | :--- | :--- |
+| NumProf | INT | - | FK, NN | Número de control del profesor asociado |
+| Nombre | VARCHAR | 100 | NN | Nombre completo del familiar beneficiario |
+| FechaNaci | DATE | - | NN | Fecha de nacimiento del dependiente |
+| Parentesco | VARCHAR | 50 | NN | Vínculo familiar (Hijo, Cónyuge, etc.) |
+| NumProfe | INT | - | FK, NN | Llave foránea de validación con la tabla Profesor |
+
+---
+
+### Tabla: Departamento
+**Descripción:** Almacena las divisiones o departamentos académicos institucionales.
+
+| CAMPO | TIPO | LONGITUD | RESTRICCIONES | DESCRIPCION |
+| :--- | :--- | :--- | :--- | :--- |
+| numDepa | INT | - | PK, AI, NN | Número único identificador del departamento |
+| nombre | VARCHAR | 100 | NN, UQ | Nombre de la facultad o departamento |
+| Edificio | VARCHAR | 50 | - | Ubicación o bloque físico dentro del campus |
+
+---
+
+### Tabla: Proyectos
+**Descripción:** Almacena los proyectos de investigación o desarrollo institucionales junto con sus responsables.
+
+| CAMPO | TIPO | LONGITUD | RESTRICCIONES | DESCRIPCION |
+| :--- | :--- | :--- | :--- | :--- |
+| NumberProyects | INT | - | PK, AI, NN | Código único asignado al proyecto |
+| NameProyects | VARCHAR | 150 | NN | Título o nombre del proyecto |
+| Presupuesto | DECIMAL | 12,2 | - | Fondo económico asignado al proyecto |
+| Profesor | VARCHAR | 50 | FK | Nombre o identificador del responsable del proyecto |
+| NumDep | INT | - | FK | Número del departamento que financia o supervisa |
+
+---
+
+### Tabla: Participa
+**Descripción:** Tabla encargada de controlar y auditar los profesores asignados a los diferentes proyectos de desarrollo.
+
+| CAMPO | TIPO | LONGITUD | RESTRICCIONES | DESCRIPCION |
+| :--- | :--- | :--- | :--- | :--- |
+| NumProfe | INT | - | FK, NN | Código del profesor que participa en el proyecto |
+| NumProyect | INT | - | FK, NN | Código del proyecto en el que se colabora |
+| Rol | VARCHAR | 50 | NN | Función desempeñada (Director, Investigador, etc.) |
+| FechaInicio | DATE | - | NN | Fecha en la que el profesor se integra formalmente |
+## 9. Diagrama Relacional
+
+![Resultado Ejercicio 1](../contenedores-docker/img/Relacional/EJERCICIO7.png)---
